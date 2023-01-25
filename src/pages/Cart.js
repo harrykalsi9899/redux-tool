@@ -5,7 +5,8 @@ import { remove } from "../store/cartSlice";
 const Cart = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart);
-  return (
+
+  return products.length > 0 ? (
     <div>
       <h3>Cart</h3>
       <div className="cartWrapper">
@@ -21,6 +22,8 @@ const Cart = () => {
         ))}
       </div>
     </div>
+  ) : (
+    <h2>The cart is empty</h2>
   );
 };
 
